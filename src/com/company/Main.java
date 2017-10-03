@@ -49,14 +49,17 @@ public class Main {
             System.out.println("Please enter your desired username:");
             Scanner scan2 = new Scanner(System.in);
             String username = scan2.nextLine();
-            players.add(new Player(username));
-            System.out.println("Do you wish to add another player?:\n\ty for yes, n for no:");
-            Scanner scan3 = new Scanner(System.in);
-            String response = scan3.nextLine();
-            if(!response.equals("y")){
-                active = false;
-                System.out.println(response);
-
+            if(playerSearch(players, username)== -1){
+                players.add(new Player(username));
+                System.out.println("Do you wish to add another player?:\n\ty for yes, n for no:");
+                Scanner scan3 = new Scanner(System.in);
+                String response = scan3.nextLine();
+                if(!response.equals("y")){
+                    active = false;
+                    System.out.println(response);
+                }
+            } else{
+                System.out.println("Sorry, this name belongs to an existing player");
             }
         }
 
@@ -70,7 +73,7 @@ public class Main {
     }
 
     public static void startGame(ArrayList<Player> players){
-        if(players.size()!=0){
+        if(players.size()>1){
             int active = 0;
             do{
                 System.out.println("Please enter Player1's username:");
@@ -84,10 +87,18 @@ public class Main {
                 Scanner scan = new Scanner(System.in);
                 String playerTwo = scan.nextLine();
                 active2 = playerSearch(players, playerTwo);
+                if(active == active2){
+                    active2 = -1;
+                    System.out.println("Player2 must not be the same as Player1.");
+                }
             }while(active2 == -1);
             Game game = new Game();
             game.startGame(players.get(active), players.get(active2), players);
+        }else{
+            System.out.println("Please ensure both players have a username.");
+            menu(players);
         }
+
     }
 
 
