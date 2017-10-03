@@ -86,7 +86,7 @@ public class Main {
                 active2 = playerSearch(players, playerTwo);
             }while(active2 == -1);
             Game game = new Game();
-            game.startGame(players.get(active), players.get(active2));
+            game.startGame(players.get(active), players.get(active2), players);
         }
     }
 
