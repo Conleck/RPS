@@ -66,9 +66,19 @@ public class Main {
         return players;
     }
 
-    public static void showScore(){
-        System.out.println("Scoreboard:\n===================");
-        System.out.println("");
+
+    public static void showScore(ArrayList<Player> players){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Winrates:\n===================");
+        for (int i = 0; i < players.size(); i++) {
+
+            float percentage = ((float)players.get(i).getWins())/(players.get(i).getWins() + players.get(i).getLosses())*100;
+            String stringPercentage = String.format("%.2f", percentage);
+            System.out.println(players.get(i).getName() + " - " + stringPercentage + "%");
+        }
+        scanner.nextLine();
+        menu(players);
+
 
     }
 
