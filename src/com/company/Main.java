@@ -17,13 +17,14 @@ public class Main {
         System.out.println("\t1-Create Player(s)");
         System.out.println("\t2-Start a new Game");
         System.out.println("\t3-View Stats");
+        System.out.println("\t4-Quit");
         Scanner scan = new Scanner(System.in);
         int optionNo = 0;
         boolean optionCorrect = false;
         while(!optionCorrect){
             try{
                 optionNo = scan.nextInt();
-                if(optionNo >0 && optionNo < 4){
+                if(optionNo >0 && optionNo < 5){
                     optionCorrect=true;
                 }
                 else{
@@ -41,6 +42,11 @@ public class Main {
             case 2:
                 startGame(players);
                 break;
+            case 3:
+                showScore(players);
+                break;
+            case 4:
+                System.exit(0);
         }
     }
     public static ArrayList<Player> createPlayer(ArrayList<Player> players){
@@ -66,9 +72,15 @@ public class Main {
         return players;
     }
 
-    public static void showScore(){
-        System.out.println("Scoreboard:\n===================");
-        System.out.println("");
+    public static void showScore(ArrayList<Player> players){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Winrates:\n===================");
+        for (int i = 0; i < players.size(); i++) {
+            int percentage = (players.get(i).getWins())/(players.get(i).getWins() + players.get(i).getLosses())*100;
+            System.out.println(players.get(i).getName() + " - " + percentage + "%");
+        }
+        scanner.nextLine();
+        menu(players);
 
     }
 
