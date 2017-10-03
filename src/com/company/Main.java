@@ -39,7 +39,6 @@ public class Main {
                 break;
         }
     }
-
     public static ArrayList<Player> createPlayer(ArrayList<Player> players){
         boolean active = true;
         while(active){
@@ -83,6 +82,7 @@ public class Main {
             game.startGame(players.get(active), players.get(active2));
         }
     }
+
 
     public static int playerSearch(ArrayList<Player> players, String username){
         for(int x = 0; x < players.size(); x++){
