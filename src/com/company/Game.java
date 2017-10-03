@@ -50,15 +50,15 @@ public class Game {
                 switch (twoPick) {
                     case 1:
                         rematch = true;
-                        System.out.println("It's a draw! Lets go again!");
+                        System.out.println("It's a draw! Lets go again!\n");
                         break;
                     case 2:
-                        System.out.println(Player2.getName() + " Wins!");
+                        System.out.println(Player2.getName() + " Wins!\n");
                         Player1.loss();
                         Player2.win();
                         break;
                     case 3:
-                        System.out.println(Player1.getName() + " Wins!");
+                        System.out.println(Player1.getName() + " Wins!\n");
                         Player1.win();
                         Player2.loss();
                         break;
@@ -70,16 +70,16 @@ public class Game {
             }else if (onePick == 2){
                 switch (twoPick) {
                     case 1:
-                        System.out.println(Player1.getName() + " Wins!");
+                        System.out.println(Player1.getName() + " Wins!\n");
                         Player1.win();
                         Player2.loss();
                         break;
                     case 2:
-                        System.out.println("It's a draw! Lets go again!");
+                        System.out.println("It's a draw! Lets go again!\n");
                         rematch = true;
                         break;
                     case 3:
-                        System.out.println(Player2.getName() + " Wins!");
+                        System.out.println(Player2.getName() + " Wins!\n");
                         Player1.loss();
                         Player2.win();
                         break;
@@ -91,17 +91,17 @@ public class Game {
             } else if (onePick == 3){
                 switch (twoPick) {
                     case 1:
-                        System.out.println(Player2.getName() + " Wins!");
+                        System.out.println(Player2.getName() + " Wins!\n");
                         Player1.loss();
                         Player2.win();
                         break;
                     case 2:
-                        System.out.println(Player1.getName() + " Wins!");
+                        System.out.println(Player1.getName() + " Wins!\n");
                         Player1.win();
                         Player2.loss();
                         break;
                     case 3:
-                        System.out.println("It's a draw! Lets go again!");
+                        System.out.println("It's a draw! Lets go again!\n");
                         rematch = true;
                         break;
                     default:
