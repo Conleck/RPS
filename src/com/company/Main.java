@@ -7,11 +7,11 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        menu();
+        ArrayList<Player> players = new ArrayList<>();
+        menu(players);
     }
 
-    public static void menu(){
-        ArrayList<Player> players = new ArrayList<>();
+    public static void menu(ArrayList<Player> players){
         System.out.println("Welcome to Rock, Paper, Scissors!");
         System.out.println("\nPlease select from the following options:");
         System.out.println("\t1-Create Player(s)");
@@ -36,6 +36,10 @@ public class Main {
         switch(optionNo){
             case 1:
                 players = createPlayer(players);
+                menu(players);
+                break;
+            case 2:
+                startGame(players);
                 break;
         }
     }
@@ -48,8 +52,11 @@ public class Main {
             players.add(new Player(username));
             System.out.println("Do you wish to add another player?:\n\ty for yes, n for no:");
             Scanner scan3 = new Scanner(System.in);
-            if(scan3.nextLine()!="y"){
+            String response = scan3.nextLine();
+            if(!response.equals("y")){
                 active = false;
+                System.out.println(response);
+
             }
         }
 
@@ -76,7 +83,7 @@ public class Main {
                 System.out.println("Please enter Player2's username:");
                 Scanner scan = new Scanner(System.in);
                 String playerTwo = scan.nextLine();
-                active = playerSearch(players, playerTwo);
+                active2 = playerSearch(players, playerTwo);
             }while(active2 == -1);
             Game game = new Game();
             game.startGame(players.get(active), players.get(active2));
@@ -86,7 +93,7 @@ public class Main {
 
     public static int playerSearch(ArrayList<Player> players, String username){
         for(int x = 0; x < players.size(); x++){
-            if(username == players.get(x).getName()){
+            if(username.equals(players.get(x).getName())){
                 return x;
             }
         }
