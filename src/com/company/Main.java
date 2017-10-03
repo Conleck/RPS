@@ -17,13 +17,14 @@ public class Main {
         System.out.println("\t1-Create Player(s)");
         System.out.println("\t2-Start a new Game");
         System.out.println("\t3-View Stats");
+        System.out.println("\t4-Quit");
         Scanner scan = new Scanner(System.in);
         int optionNo = 0;
         boolean optionCorrect = false;
         while(!optionCorrect){
             try{
                 optionNo = scan.nextInt();
-                if(optionNo >0 && optionNo < 4){
+                if(optionNo >0 && optionNo < 5){
                     optionCorrect=true;
                 }
                 else{
@@ -43,6 +44,9 @@ public class Main {
                 break;
             case 3:
                 showScore(players);
+                break;
+            case 4:
+                System.exit(0);
         }
     }
     public static ArrayList<Player> createPlayer(ArrayList<Player> players){
