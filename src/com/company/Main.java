@@ -63,7 +63,33 @@ public class Main {
 
     }
 
-    public static void startGame(Player Player1, Player Player2){
+    public static void startGame(ArrayList<Player> players){
+        if(players.size()!=0){
+            int active = 0;
+            do{
+                System.out.println("Please enter Player1's username:");
+                Scanner scan = new Scanner(System.in);
+                String playerOne = scan.nextLine();
+                active = playerSearch(players, playerOne);
+            }while(active == -1);
+            int active2 = 0;
+            do{
+                System.out.println("Please enter Player2's username:");
+                Scanner scan = new Scanner(System.in);
+                String playerTwo = scan.nextLine();
+                active = playerSearch(players, playerTwo);
+            }while(active2 == -1);
+            Game game = new Game();
+            game.startGame(players.get(active), players.get(active2));
+        }
+    }
 
+    public static int playerSearch(ArrayList<Player> players, String username){
+        for(int x = 0; x < players.size(); x++){
+            if(username == players.get(x).getName()){
+                return x;
+            }
+        }
+        return -1;
     }
 }
