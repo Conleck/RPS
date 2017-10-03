@@ -47,6 +47,7 @@ public class Main {
                 break;
             case 4:
                 System.exit(0);
+                break;
         }
     }
     public static ArrayList<Player> createPlayer(ArrayList<Player> players){
@@ -76,12 +77,12 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Winrates:\n===================");
         for (int i = 0; i < players.size(); i++) {
-            int percentage = (players.get(i).getWins())/(players.get(i).getWins() + players.get(i).getLosses())*100;
-            System.out.println(players.get(i).getName() + " - " + percentage + "%");
+            float percentage = ((float)players.get(i).getWins())/(players.get(i).getWins() + players.get(i).getLosses())*100;
+            String stringPercentage = String.format("%.2f", percentage);
+            System.out.println(players.get(i).getName() + " - " + stringPercentage + "%");
         }
         scanner.nextLine();
         menu(players);
-
     }
 
     public static void startGame(ArrayList<Player> players){

@@ -14,10 +14,11 @@ public class Game {
             System.out.println("Controls:\n\t-1 Rock\n\t-2 Paper\n\t-3 Scissors");
             int onePick = 0, twoPick = 0;
             System.out.println(Player1.getName() + " Go!! " + Player2.getName() + " Look Away!\nPress either 1,2 or 3:");
-            Scanner scan = new Scanner(System.in);
+
             boolean correctMove = false;
             while (!correctMove) {
                 try {
+                    Scanner scan = new Scanner(System.in);
                     onePick = scan.nextInt();
                     if (onePick > 0 && onePick < 4) {
                         correctMove = true;
@@ -28,13 +29,17 @@ public class Game {
                     System.out.println("Please enter a number of 1-3");
                 }
             }
-            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+            for(int x =0; x < 100; x++){
+                System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+            }
+
 
             System.out.println(Player2.getName() + " Go!! " + Player1.getName() + " Look Away!\nPress either 1,2 or 3:");
-            Scanner scan2 = new Scanner(System.in);
+
             boolean correctMove2 = false;
             while (!correctMove2) {
                 try {
+                    Scanner scan2 = new Scanner(System.in);
                     twoPick = scan2.nextInt();
                     if (twoPick > 0 && twoPick < 4) {
                         correctMove2= true;
