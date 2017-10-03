@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Scanner;
+
 public class Player {
     private String name;
     private int wins, losses;
@@ -8,6 +10,13 @@ public class Player {
         this.name = name;
         wins = 0;
         losses = 0;
+    }
+
+    public static void createPlayer(){
+        System.out.println("Please enter your desired username:");
+        Scanner scan = new Scanner(System.in);
+        String username = scan.nextLine();
+        Player player1 = new Player(username);
     }
 
     public String getName() {
@@ -24,6 +33,13 @@ public class Player {
 
     public void setWins(int wins) {
         this.wins = wins;
+    }
+
+    public void win(){
+        wins++;
+    }
+    public void loss(){
+        losses++;
     }
 
     public int getLosses() {
