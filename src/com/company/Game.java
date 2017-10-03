@@ -1,11 +1,12 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Game {
 
-    public static void startGame(Player Player1, Player Player2) {
+    public static void startGame(Player Player1, Player Player2, ArrayList<Player> players) {
         boolean rematch;
         do {
             rematch = false;
@@ -30,12 +31,13 @@ public class Game {
             System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
             System.out.println(Player2.getName() + " Go!! " + Player1.getName() + " Look Away!\nPress either 1,2 or 3:");
+            Scanner scan2 = new Scanner(System.in);
             boolean correctMove2 = false;
             while (!correctMove2) {
                 try {
-                    twoPick = scan.nextInt();
+                    twoPick = scan2.nextInt();
                     if (twoPick > 0 && twoPick < 4) {
-                        correctMove = true;
+                        correctMove2= true;
                     } else {
                         System.out.println("Please enter a number between 1 and 3");
                     }
@@ -112,5 +114,7 @@ public class Game {
                 rematch = true;
             }
         }while(rematch);
+
+        Main.menu(players);
     }
 }
