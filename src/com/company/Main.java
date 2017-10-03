@@ -47,6 +47,8 @@ public class Main {
                 break;
             case 4:
                 System.exit(0);
+                break;
+
         }
     }
     public static ArrayList<Player> createPlayer(ArrayList<Player> players){
